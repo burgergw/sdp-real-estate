@@ -1,7 +1,8 @@
 /* SDP Real Estate — shared styles
    Fonts and colours follow Silver Dune Photography. The Adobe Fonts names come first in each
    stack, so adding an Adobe Fonts web kit for this domain switches to the exact brand fonts;
-   until then the Google Fonts lookalikes are used. Portfolio galleries are written by tools/build.js. */
+   until then the Google Fonts lookalikes are used. Portfolio galleries are written by tools/build.js.
+   Bump the ?v= tag on the styles.css and main.js links in both pages after changing them, so browsers fetch the new file. */
 
 :root{
   --cream:#F5F0EB; --white:#FFFFFF; --sand:#D6C2A8; --sand-2:#EADFD1;
@@ -21,7 +22,7 @@ a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.25em}
 .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:10px 16px;z-index:99}
 .skip:focus{left:16px}
 h1,h2,h3{margin:0;color:var(--ink);text-wrap:balance}
-h1{font:400 clamp(44px, 7.6vw, 112px)/.98 var(--display);letter-spacing:-.015em}
+h1{font:400 clamp(30px, 3.8vw, 54px)/1.08 var(--display);letter-spacing:-.01em}
 h1 em{color:var(--copper)}
 h2{font:400 clamp(26px, 3vw, 42px)/1.25 var(--caps);letter-spacing:.12em;text-transform:uppercase}
 h3{font:500 clamp(22px, 2vw, 28px)/1.2 var(--display)}
@@ -50,20 +51,20 @@ section[id]{scroll-margin-top:80px}
 .masthead nav a{font:600 11.5px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
 .masthead nav a:hover,.masthead nav a[aria-current="page"]{color:var(--copper)}
 .brand{display:block;line-height:0}
-.brand img{width:clamp(280px, 30vw, 440px);height:auto}
+.brand img{width:clamp(380px, 36vw, 520px);height:auto}
 .menu-btn{display:none;justify-self:end;background:none;border:1.5px solid var(--ink);color:var(--ink);font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:11px 14px;cursor:pointer}
 .drawer{display:none}
 
 /* Hero */
 .hero{padding-top:clamp(48px, 7vw, 96px)}
 .hero .label{text-align:center;margin-bottom:28px}
-.hero h1{text-align:center;max-width:15ch;margin-inline:auto}
+.hero h1{text-align:center;max-width:24ch;margin-inline:auto}
 .plate{margin:clamp(40px, 6vw, 80px) 0 0}
 .plate img{width:100%;aspect-ratio:16/8;object-fit:cover}
 .plate figcaption,.caption{display:flex;justify-content:space-between;gap:24px;padding-top:14px;font:italic 400 17px/1.45 var(--display);color:var(--text)}
 .plate figcaption span:last-child{font:600 11px/1.6 var(--sans);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .hero-intro{display:grid;grid-template-columns:1fr 2fr 1fr;gap:clamp(24px, 4vw, 64px);padding-top:clamp(48px, 6vw, 88px);align-items:start}
-.hero-intro .lede{font:400 clamp(21px, 2vw, 27px)/1.5 var(--display);color:var(--ink)}
+.hero-intro .lede{font:400 clamp(18px, 1.5vw, 22px)/1.55 var(--display);color:var(--ink)}
 .hero-intro .ctas{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
 
 /* Approach */
@@ -181,7 +182,7 @@ footer .legal{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap
 
 /* Portfolio page */
 .page-head{padding-block:clamp(56px, 8vw, 110px) clamp(40px, 5vw, 64px);text-align:center}
-.page-head h1{font-size:clamp(34px, 4.4vw, 64px);line-height:1.05;max-width:20ch;margin:0 auto 26px}
+.page-head h1{max-width:24ch;margin:0 auto 22px}
 .page-head p{max-width:60ch;margin:0 auto}
 .index{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px, 2vw, 24px);list-style:none;margin:clamp(40px, 5vw, 64px) 0 0;padding:0;text-align:left}
 .index a{display:block;text-decoration:none}
@@ -226,8 +227,18 @@ footer .legal{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap
 .cta-band p{max-width:50ch;margin:0 auto 32px}
 
 /* Responsive */
+/* Below this width the large logo and both menus no longer fit side by side, so the menu folds into a button */
+@media (max-width: 1140px){
+  .masthead .wrap{grid-template-columns:1fr auto}
+  .masthead nav{display:none}
+  .brand img{width:clamp(230px, 62vw, 440px)}
+  .menu-btn{display:block}
+  .drawer{border-top:1px solid var(--line)}
+  .drawer.open{display:block}
+  .drawer ul{list-style:none;margin:0;padding:12px var(--gutter) 24px}
+  .drawer a{display:block;padding:13px 0;font:400 20px/1.2 var(--caps);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+}
 @media (max-width: 1080px){
-  .brand img{width:25vw}
   .regions{grid-template-columns:repeat(3,1fr);row-gap:40px}
   .steps{grid-template-columns:repeat(2,1fr);row-gap:44px}
   .project .intro{grid-template-columns:1fr 1fr}
@@ -236,14 +247,6 @@ footer .legal{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap
 @media (max-width: 900px){
   .strip .where{display:none}
   .strip .wrap{justify-content:center}
-  .masthead .wrap{grid-template-columns:1fr auto}
-  .masthead nav{display:none}
-  .brand img{width:clamp(220px, 62vw, 340px)}
-  .menu-btn{display:block}
-  .drawer{border-top:1px solid var(--line)}
-  .drawer.open{display:block}
-  .drawer ul{list-style:none;margin:0;padding:12px var(--gutter) 24px}
-  .drawer a{display:block;padding:13px 0;font:400 20px/1.2 var(--caps);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
   .hero-intro{grid-template-columns:1fr}
   .hero-intro .ctas{flex-direction:row;flex-wrap:wrap}
   .plate img{aspect-ratio:4/3}
