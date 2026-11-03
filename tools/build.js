@@ -54,9 +54,10 @@ async function exportPhoto(shoot, [num, slug]) {
     for (const photo of shoot.photos) {
       const { L, S, large, small } = await exportPhoto(shoot, photo);
       manifest.push(`${large}\t${shoot.prefix}-${photo[0]}.jpg`);
+      // The link opens the large photo directly without JavaScript; js/main.js turns it into the photo viewer.
       figures.push(
-        `        <figure><img loading="lazy" decoding="async" width="${L.width}" height="${L.height}" src="${small}" ` +
-        `srcset="${small} ${S.width}w, ${large} ${L.width}w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 430px" alt="${esc(photo[2])}"></figure>`
+        `        <figure><a href="${large}"><img loading="lazy" decoding="async" width="${L.width}" height="${L.height}" src="${small}" ` +
+        `srcset="${small} ${S.width}w, ${large} ${L.width}w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 430px" alt="${esc(photo[2])}"></a></figure>`
       );
     }
     const open = `<!-- gallery:${shoot.id} -->`, close = `<!-- /gallery:${shoot.id} -->`;

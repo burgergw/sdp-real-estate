@@ -196,10 +196,31 @@ footer .legal{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap
 .project dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:16px}
 .project dt{font:600 10.5px/2.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .project dd{margin:0;color:var(--ink)}
-/* Masonry: photos keep their own shape and flow down three columns */
-.gallery{columns:3;column-gap:clamp(12px, 1.6vw, 20px)}
-.gallery figure{margin:0 0 clamp(12px, 1.6vw, 20px);break-inside:avoid;background:var(--sand-2)}
-.gallery img{width:100%}
+/* Masonry: photos keep their own shape and flow down three columns, with thin gaps */
+.gallery{columns:3;column-gap:4px}
+.gallery figure{margin:0 0 4px;break-inside:avoid;background:var(--sand-2)}
+.gallery a{display:block;cursor:zoom-in}
+.gallery a:focus-visible{outline:2px solid var(--copper);outline-offset:-2px}
+.gallery img{width:100%;transition:opacity .25s}
+.gallery a:hover img{opacity:.88}
+
+/* Photo viewer (js/main.js) */
+.viewer{width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(23,23,23,.97);color:#F5F0EB;overflow:hidden}
+.viewer::backdrop{background:rgba(23,23,23,.6)}
+.viewer[open]{display:grid;grid-template-rows:auto 1fr}
+.viewer .bar{display:flex;justify-content:space-between;align-items:center;padding:14px clamp(14px, 3vw, 28px);font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#C9BFB3}
+.viewer .stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 clamp(8px, 7vw, 96px) clamp(16px, 3vw, 32px);touch-action:pan-y}
+.viewer .stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none;transition:opacity .2s}
+.viewer .stage img.loading{opacity:0}
+.viewer button{background:none;border:0;color:#F5F0EB;cursor:pointer;display:grid;place-items:center;transition:color .2s, background .2s}
+.viewer button:hover{color:var(--sand)}
+.viewer button:focus-visible{outline:1px solid var(--sand);outline-offset:2px}
+.viewer .close{width:44px;height:44px;margin-right:-10px}
+.viewer .nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(23,23,23,.35)}
+.viewer .nav:hover{background:rgba(23,23,23,.6)}
+.viewer .prev{left:clamp(4px, 2vw, 24px)}
+.viewer .next{right:clamp(4px, 2vw, 24px)}
+@media (max-width: 560px){.viewer .nav{width:44px;height:44px;background:rgba(23,23,23,.5)}}
 .cta-band{text-align:center}
 .cta-band h2{max-width:24ch;margin:0 auto 18px}
 .cta-band p{max-width:50ch;margin:0 auto 32px}
