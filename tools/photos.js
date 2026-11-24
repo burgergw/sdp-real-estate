@@ -4,7 +4,7 @@
 
 module.exports = {
   heroes: ["18JC-62", "Atlantic-299"],
-  logo: { src: "media/logos/Type.png", out: "images/logo/sdp-real-estate-logo.png", width: 1200 },
+  logo: { src: "images/logo/Ssand_outline.png", out: "images/logo/shorelight-media-logo-sand.png", width: 900 },
   shoots: [
     {
       id: "bakoond", prefix: "Bakoond", folder: "bakoond",

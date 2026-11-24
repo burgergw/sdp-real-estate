@@ -11,7 +11,7 @@ const { heroes, logo, shoots } = require("./photos");
 const root = path.resolve(__dirname, "..");
 const media = path.join(root, "media", "JudePics");
 const force = process.argv.includes("--force");
-const exif = { IFD0: { Artist: "Judite Howell", Copyright: "© Judite Howell, SDP Real Estate" } };
+const exif = { IFD0: { Artist: "Judite Howell", Copyright: "© Judite Howell, ShoreLight Media" } };
 const jpg = img => img.withExif(exif).jpeg({ quality: 78, mozjpeg: true, progressive: true });
 const esc = s => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 

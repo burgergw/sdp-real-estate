@@ -48,4 +48,4 @@ http.createServer((req, res) => {
       res.writeHead(404); res.end("Not found");
     });
   });
-}).listen(port, () => console.log(`SDP Real Estate preview: http://localhost:${port}/`));
+}).listen(port, () => console.log(`ShoreLight Media preview: http://localhost:${port}/`));

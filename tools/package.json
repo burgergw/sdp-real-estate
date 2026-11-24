@@ -1,7 +1,7 @@
 {
-  "name": "sdp-real-estate-tools",
+  "name": "shorelight-media-tools",
   "private": true,
-  "description": "Exports web images and writes the portfolio galleries for the SDP Real Estate site.",
+  "description": "Exports web images and writes the portfolio galleries for the ShoreLight Media site.",
   "scripts": {
     "build": "node build.js"
   },
