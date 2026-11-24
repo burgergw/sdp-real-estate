@@ -45,13 +45,14 @@ section[id]{scroll-margin-top:80px}
 .strip a:hover{color:var(--copper)}
 .strip .contact{display:flex;gap:24px}
 .masthead{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--cream) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.masthead .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:14px}
+.masthead .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:10px}
 .masthead nav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(18px, 2.4vw, 40px)}
 .masthead nav:last-of-type ul{justify-content:flex-end}
 .masthead nav a{font:600 11.5px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
 .masthead nav a:hover,.masthead nav a[aria-current="page"]{color:var(--copper)}
 .brand{display:block;line-height:0}
-.brand img{width:clamp(380px, 36vw, 520px);height:auto}
+.brand img{height:auto}
+.masthead .brand img{width:clamp(240px, 22vw, 320px)}
 .menu-btn{display:none;justify-self:end;background:none;border:1.5px solid var(--ink);color:var(--ink);font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:11px 14px;cursor:pointer}
 .drawer{display:none}
 
@@ -227,11 +228,11 @@ footer .legal{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap
 .cta-band p{max-width:50ch;margin:0 auto 32px}
 
 /* Responsive */
-/* Below this width the large logo and both menus no longer fit side by side, so the menu folds into a button */
-@media (max-width: 1140px){
+/* Below this width the logo and both menus no longer fit side by side, so the menu folds into a button */
+@media (max-width: 900px){
   .masthead .wrap{grid-template-columns:1fr auto}
   .masthead nav{display:none}
-  .brand img{width:clamp(230px, 62vw, 440px)}
+  .masthead .brand img{width:clamp(180px, 56vw, 240px)}
   .menu-btn{display:block}
   .drawer{border-top:1px solid var(--line)}
   .drawer.open{display:block}
